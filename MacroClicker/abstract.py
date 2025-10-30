@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 import asyncio
 
-class Action(ABC):
+class Pressables(ABC):
     @abstractmethod
     async def press(self, button): ...
     
@@ -33,7 +33,9 @@ class Action(ABC):
     async def multi_tap(self, buttons):
         for button in buttons:
             await self.tap(button)
-    
-    
+
+
+
+class Action(ABC):
     @abstractmethod
     async def act(self): ...

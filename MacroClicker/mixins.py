@@ -10,7 +10,7 @@ class MouseMixin:
         mouse.release(button)
     
     async def tap(self, button):
-        mouse.click()
+        mouse.click(button)
 
 
 class KeyboardMixin:

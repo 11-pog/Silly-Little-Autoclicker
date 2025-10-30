@@ -1,46 +1,19 @@
-from abstract import *
-import asyncio
+from base_actions import *
+from mixins import *
+from abstract import Action
 
 
-class Tap(Action):
-    __slots__ = ['key']
-    
-    def __init__(self, key):
-        self.key = key
-    
-    async def act(self):
-        await self.tap(self.key)
+class KeyboardTap(KeyboardMixin, Tap): ...
+class MouseTap(MouseMixin, Tap): ...
 
+class KeyboardHold(KeyboardMixin, Hold): ...
+class MouseHold(MouseMixin, Hold): ...
 
-class Hold(Action):
-    __slots__ = ['hold', 'key']
-    
-    def __init__(self, key, time):
-        self.time = time
-        self.key = key
-    
-    async def act(self):
-        await self.hold(self.key, self.time)
+class KeyboardPress(KeyboardMixin, Press): ...
+class MousePress(MouseMixin, Press): ...
 
-
-class Press(Action):
-    __slots__ = ['key']
-    
-    def __init__(self, key):
-        self.key = key
-    
-    async def act(self):
-        await self.tap(self.key)
-
-
-class Release(Action):
-    __slots__ = ['key']
-    
-    def __init__(self, key):
-        self.key = key
-    
-    async def act(self):
-        await self.tap(self.key)
+class KeyboardRelease(KeyboardMixin, Release): ...
+class MouseRelease(MouseMixin, Release): ...
 
 
 class Rest(Action):
