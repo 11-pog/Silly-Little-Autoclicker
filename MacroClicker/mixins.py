@@ -2,7 +2,7 @@ import mouse
 import keyboard
 
 
-class MouseMixin:
+class _MouseMixin:
     async def press(self, button):
         mouse.press(button)
     
@@ -13,7 +13,7 @@ class MouseMixin:
         mouse.click(button)
 
 
-class KeyboardMixin:
+class _KeyboardMixin:
     async def press(self, button):
         keyboard.press(button)
     

@@ -1,43 +1,42 @@
 from abstract import *
-import asyncio
 
 
-class Tap(Action, Pressables):
+class Tap(Pressables):
     __slots__ = ['key']
     
-    def __init__(self, key):
+    def __init__(self, key: str):
         self.key = key
     
-    async def act(self):
+    async def act(self, context):
         await self.tap(self.key)
 
 
-class Hold(Action, Pressables):
+class Hold(Pressables):
     __slots__ = ['hold', 'key']
     
-    def __init__(self, key, time):
+    def __init__(self, key: str, time: float):
         self.time = time
         self.key = key
     
-    async def act(self):
+    async def act(self, context):
         await self.hold(self.key, self.time)
 
 
-class Press(Action, Pressables):
+class Press(Pressables):
     __slots__ = ['key']
     
-    def __init__(self, key):
+    def __init__(self, key: str):
         self.key = key
     
-    async def act(self):
-        await self.tap(self.key)
+    async def act(self, context):
+        await self.press(self.key)
 
 
-class Release(Action, Pressables):
+class Release(Pressables):
     __slots__ = ['key']
     
-    def __init__(self, key):
+    def __init__(self, key: str):
         self.key = key
     
-    async def act(self):
-        await self.tap(self.key)
+    async def act(self, context):
+        await self.release(self.key)

@@ -1,7 +1,20 @@
 from abc import ABC, abstractmethod
+
 import asyncio
 
-class Pressables(ABC):
+class Action(ABC):
+    @abstractmethod
+    async def act(self, context): ...
+    
+    def __str__(self):
+        if hasattr(self, '__slots__'):
+            attrs = ', '.join(f"{slot}={getattr(self, slot)!r}" for slot in self.__slots__)
+            return f"<{self.__class__.__name__}: {attrs}>"
+        else:
+            return f"<{self.__class__.__name__}>"
+
+
+class Pressables(Action):
     @abstractmethod
     async def press(self, button): ...
     
@@ -33,9 +46,3 @@ class Pressables(ABC):
     async def multi_tap(self, buttons):
         for button in buttons:
             await self.tap(button)
-
-
-
-class Action(ABC):
-    @abstractmethod
-    async def act(self): ...
