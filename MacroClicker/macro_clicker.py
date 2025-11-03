@@ -3,9 +3,9 @@ import keyboard
 import asyncio
 
 
-from abstract import Action
 from base_actions import *
-from commands.special import MacroSequence
+from abstract import Action
+from MacroClicker.commands.structure import MacroSequence
 
 
 class MacroClicker():
