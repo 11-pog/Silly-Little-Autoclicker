@@ -13,8 +13,6 @@ class MacroSequence:
 
 
 class RepeatSequence(MacroSequence):
-    __slots__ = MacroSequence.__slots__
-    
     def __init__(self, actions: list[Union["Action", "MacroSequence"]], repeat: int):
         actions = actions * repeat
         
