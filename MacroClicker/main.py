@@ -5,13 +5,11 @@ from commands.keyboard import *
 from commands.general import *
 
 
-crouch_time = .01
-
 actions = [
     KeyboardPress("ctrl"),
-    #Rest(crouch_time),
+    #Rest(.01),
     KeyboardRelease("ctrl"),
-    #Rest(crouch_time)
+    #Rest(.01)
 ]
 
 
