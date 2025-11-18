@@ -5,7 +5,7 @@ import asyncio
 
 from base_actions import *
 from abstract import Action
-from MacroClicker.commands.structure import MacroSequence
+from commands.structure import MacroSequence
 
 
 class MacroClicker():

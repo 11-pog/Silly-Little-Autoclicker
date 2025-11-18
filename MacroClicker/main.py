@@ -6,10 +6,7 @@ from commands.general import *
 
 
 actions = [
-    KeyboardPress("ctrl"),
-    #Rest(.01),
-    KeyboardRelease("ctrl"),
-    #Rest(.01)
+    MouseHold('left', 10)
 ]
 
 

@@ -12,7 +12,7 @@ class Tap(Pressables):
 
 
 class Hold(Pressables):
-    __slots__ = ['hold', 'key']
+    __slots__ = ['time', 'key']
     
     def __init__(self, key: str, time: float):
         self.time = time
